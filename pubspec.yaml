@@ -21,7 +21,6 @@ dev_dependencies:
   flutter_lints: ^1.0.0  # Reglas de linting recomendadas para buenos hábitos de codificación
 
 flutter:
-
   uses-material-design: true
 
   assets:

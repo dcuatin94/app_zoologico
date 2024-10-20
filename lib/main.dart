@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'src/home.dart'; // Importa la pantalla de inicio que tiene la navegación
+import 'src/home.dart'; // Asegúrate de que la ruta es correcta. Si tu archivo home.dart está en lib/src/
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Navegación Básica',
-      theme: ThemeData(
-        primarySwatch: Colors.green, // Color principal verde
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false, // Elimina la bandera de depuración
       home:
-          const HomeScreen(), // Pantalla principal será la de inicio (HomeScreen)
+          HomeScreen(), // Asegúrate de que HomeScreen está bien definido e importado
     );
   }
 }
