@@ -12,12 +12,16 @@ class InicioScreen extends StatelessWidget {
             style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.green, // Estilo personalizado para el AppBar
       ),
-      body: const Padding(
+      body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Image.asset('assets/galeria/oso.jpg'),
+            SizedBox(
+              height: 20,
+            ),
             Text(
               '¡Bienvenidos al Zoológico de Quito!',
               style: TextStyle(
