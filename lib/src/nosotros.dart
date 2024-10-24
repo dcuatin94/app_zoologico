@@ -31,10 +31,6 @@ class NosotrosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Nosotros'),
-        backgroundColor: Colors.green, // Color personalizado para el AppBar
-      ),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -1,3 +1,4 @@
+import 'package:app_zoologico/src/widgets/ExpandingCircleImage.dart';
 import 'package:flutter/material.dart';
 
 class InicioScreen extends StatelessWidget {
@@ -8,16 +9,19 @@ class InicioScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('Pantalla de Inicio',
-            style: TextStyle(color: Colors.white)),
+        title: const Text('QUITO ZOO', style: TextStyle(color: Colors.white)),
         backgroundColor: Colors.green, // Estilo personalizado para el AppBar
       ),
       body: const Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            ExpandingCircleImage(imagePath: 'assets/galeria/oso.jpg'),
+            SizedBox(
+              height: 20,
+            ),
             Text(
               '¡Bienvenidos al Zoológico de Quito!',
               style: TextStyle(
@@ -54,7 +58,7 @@ class InicioScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacementNamed(context, '/home');
+          Navigator.pushReplacementNamed(context, '/menu');
         },
         child: const Icon(Icons.arrow_forward, color: Colors.white),
         backgroundColor: Colors.amber.shade400,

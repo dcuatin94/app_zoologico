@@ -1,8 +1,9 @@
-import 'package:app_zoologico/src/inicio.dart';
+import 'package:app_zoologico/src/bienvenidos.dart';
+import 'package:app_zoologico/src/menu.dart';
 import 'package:app_zoologico/src/page_not_found.dart';
 import 'package:app_zoologico/src/registro.dart';
 import 'package:flutter/material.dart';
-import 'src/home.dart'; // Asegúrate de que la ruta es correcta. Si tu archivo home.dart está en lib/src/
+// Asegúrate de que la ruta es correcta. Si tu archivo home.dart está en lib/src/
 
 void main() {
   runApp(MyApp());
@@ -12,8 +13,9 @@ class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
   final _routes = {
     '/': (context) => const InicioScreen(),
-    '/home': (context) =>
-        const HomeScreen(), // Asigna una ruta para HomeScreen(),
+    '/menu': (context) => const Menu(),
+    '/registro': (context) =>
+        const RegistroScreen(), // Asigna una ruta para HomeScreen(),
   };
   @override
   Widget build(BuildContext context) {
