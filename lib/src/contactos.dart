@@ -57,18 +57,6 @@ class ContactosScreen extends StatelessWidget {
                   // Acción para abrir Facebook
                 },
               ),
-              // IconButton(
-              //   icon: Icon(Icons.twitter, color: Colors.blue),
-              //   onPressed: () {
-              //     // Acción para abrir Twitter
-              //   },
-              // ),
-              // IconButton(
-              //   icon: Icon(Icons.instagram, color: Colors.pink),
-              //   onPressed: () {
-              //     // Acción para abrir Instagram
-              //   },
-              // ),
               IconButton(
                 icon: const Icon(Icons.linked_camera, color: Colors.blue),
                 onPressed: () {

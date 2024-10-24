@@ -28,7 +28,7 @@ class _MapaState extends State<MapaScreen> {
               });
             },
             child: AnimatedContainer(
-                duration: Duration(milliseconds: 300),
+                duration: const Duration(milliseconds: 300),
                 width: _isExpanded ? MediaQuery.of(context).size.width : 300,
                 height: _isExpanded ? MediaQuery.of(context).size.height : 200,
                 child: SingleChildScrollView(
@@ -51,7 +51,7 @@ class _MapaState extends State<MapaScreen> {
               });
             },
             child: AnimatedContainer(
-                duration: Duration(milliseconds: 300),
+                duration: const Duration(milliseconds: 300),
                 width: _isExpanded2 ? MediaQuery.of(context).size.width : 300,
                 height: _isExpanded2 ? MediaQuery.of(context).size.height : 200,
                 child: SingleChildScrollView(
