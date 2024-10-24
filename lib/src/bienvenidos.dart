@@ -1,5 +1,6 @@
 import 'package:app_zoologico/src/widgets/ExpandingCircleImage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class InicioScreen extends StatelessWidget {
   const InicioScreen({super.key});
@@ -9,8 +10,12 @@ class InicioScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('QUITO ZOO', style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.green, // Estilo personalizado para el AppBar
+        title: SvgPicture.asset(
+          'assets/images/zoo-color.svg',
+          width: 50,
+          height: 50,
+        ),
+        backgroundColor: Colors.green,
       ),
       body: const Padding(
         padding: EdgeInsets.all(16.0),

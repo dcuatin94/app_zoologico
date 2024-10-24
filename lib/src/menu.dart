@@ -64,7 +64,7 @@ class _MenuState extends State<Menu> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.email),
-            label: 'Settings',
+            label: 'Contáctanos',
           ),
         ],
         currentIndex: _selectedIndex,
