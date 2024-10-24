@@ -13,7 +13,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2  # Para íconos en estilo iOS
-
+  flutter_svg: ^2.0.10+1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -25,3 +26,4 @@ flutter:
 
   assets:
     - assets/galeria/  # Ruta a tu carpeta de imágenes
+    - assets/images/  # Ruta a tu carpeta de imágenes
