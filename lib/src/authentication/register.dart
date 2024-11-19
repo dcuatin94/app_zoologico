@@ -1,8 +1,10 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:app_zoologico/src/services/auth_service.dart';
 import 'package:app_zoologico/src/widgets/ExpandingCircleImage.dart';
 import 'package:app_zoologico/src/widgets/logo.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -51,6 +53,16 @@ class _RegisterPageState extends State<RegisterPage> {
     _passwordController.dispose();
     _confirmPasswordController.dispose();
     super.dispose();
+  }
+
+  void _registerUser() async {
+    // Lógica para registrar el usuario
+    Provider.of<AuthService>(context, listen: false)
+        .signUp(_emailController.text.trim(), _passwordController.text.trim(),
+            context)
+        .then(
+          (value) => Navigator.pushReplacementNamed(context, '/login'),
+        );
   }
 
   @override
@@ -164,13 +176,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 child: Text('Registrarse'),
                 onPressed: () {
                   // Implementar la funcionalidad de registro aquí
-                  if (_formKey.currentState!.validate()) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                          content: Text('Cuenta creada exitosamente')),
-                    );
-                    Navigator.pushReplacementNamed(context, '/login');
-                  }
+                  _registerUser();
                 },
               ),
               TextButton(
