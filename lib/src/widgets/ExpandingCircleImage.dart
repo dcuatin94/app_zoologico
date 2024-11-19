@@ -6,6 +6,7 @@ class ExpandingCircleImage extends StatefulWidget {
   const ExpandingCircleImage({super.key, required this.imagePath});
 
   @override
+  // ignore: library_private_types_in_public_api
   _ExpandingCircleImageState createState() => _ExpandingCircleImageState();
 }
 

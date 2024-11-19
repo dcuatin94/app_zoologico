@@ -1,8 +1,10 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:app_zoologico/src/services/auth_service.dart';
 import 'package:app_zoologico/src/widgets/ExpandingCircleImage.dart';
 import 'package:app_zoologico/src/widgets/logo.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'register.dart';
 
 class LoginPage extends StatefulWidget {
@@ -16,6 +18,25 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _obscurePassword = true;
+
+  void _login() async {
+    try {
+      Provider.of<AuthService>(context, listen: false).signIn(
+          _emailController.text.trim(),
+          _passwordController.text.trim(),
+          context);
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: Text(
+          'Error al registrar el usuario: $e',
+          style: TextStyle(color: Colors.white),
+        ),
+        duration: Duration(seconds: 2),
+        backgroundColor: Colors.red,
+        elevation: 4.0,
+      ));
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,9 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                 backgroundColor: Colors.green,
                 foregroundColor: Colors.white,
               ),
-              onPressed: () {
-                //Login
-              },
+              onPressed: _login,
               child: Text('Iniciar Sesión'),
             ),
             SizedBox(height: 16.0),

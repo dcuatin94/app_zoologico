@@ -1,21 +1,30 @@
+import 'package:app_zoologico/src/services/auth_service.dart';
+import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+import 'firebase_options.dart';
 import 'package:app_zoologico/src/authentication/register.dart';
 import 'package:app_zoologico/src/pages/bienvenidos.dart';
-import 'package:app_zoologico/src/pages/home.dart';
 import 'package:app_zoologico/src/pages/menu.dart';
 import 'package:app_zoologico/src/pages/page_not_found.dart';
 import 'package:app_zoologico/src/authentication/login.dart';
-import 'package:flutter/material.dart';
 // Asegúrate de que la ruta es correcta. Si tu archivo home.dart está en lib/src/
 
-void main() {
-  runApp(MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => AuthService()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
   MyApp({super.key});
   final _routes = {
-    '/': (context) => const Menu(),
-    // '/': (context) => const InicioScreen(),
+    '/': (context) => const BienvenidoScreen(),
     '/menu': (context) => const Menu(),
     '/login': (context) => const LoginPage(),
     '/register': (context) =>
@@ -26,7 +35,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Zoologico App',
       debugShowCheckedModeBanner: false, // Elimina la bandera de depuración
-      initialRoute: '/',
+      initialRoute: '/login',
       routes: _routes,
       onGenerateRoute: (settings) => MaterialPageRoute(
           builder: (context) =>
