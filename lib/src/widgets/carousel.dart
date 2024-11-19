@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 class AnimalCarousel extends StatelessWidget {
-  AnimalCarousel({Key? key}) : super(key: key);
+  AnimalCarousel({super.key});
   final List<String> imgList = [
     'assets/galeria/caiman.jpg', // Reemplaza con la ruta de tu imagen
     'assets/galeria/supay.jpg', // Reemplaza con la ruta de tu imagen

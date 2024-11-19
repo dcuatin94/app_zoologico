@@ -1,12 +1,14 @@
-import 'package:app_zoologico/src/contactos.dart';
-import 'package:app_zoologico/src/home.dart';
-import 'package:app_zoologico/src/mapa.dart';
-import 'package:app_zoologico/src/nosotros.dart';
+// ignore_for_file: library_private_types_in_public_api
+
+import 'package:app_zoologico/src/pages/contactos.dart';
+import 'package:app_zoologico/src/pages/home.dart';
+import 'package:app_zoologico/src/pages/mapa.dart';
+import 'package:app_zoologico/src/pages/nosotros.dart';
+import 'package:app_zoologico/src/widgets/logo.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Menu extends StatefulWidget {
-  const Menu({Key? key}) : super(key: key);
+  const Menu({super.key});
 
   @override
   _MenuState createState() => _MenuState();
@@ -31,11 +33,7 @@ class _MenuState extends State<Menu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: SvgPicture.asset(
-          'assets/images/zoo-color.svg',
-          width: 50,
-          height: 50,
-        ),
+        title: Logo(),
         backgroundColor: Colors.green,
         actions: [
           IconButton(

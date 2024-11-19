@@ -1,12 +1,9 @@
-// ignore: file_names
-
 import 'package:flutter/material.dart';
 
 class ExpandingCircleImage extends StatefulWidget {
   final String imagePath;
 
-  const ExpandingCircleImage({Key? key, required this.imagePath})
-      : super(key: key);
+  const ExpandingCircleImage({super.key, required this.imagePath});
 
   @override
   _ExpandingCircleImageState createState() => _ExpandingCircleImageState();
