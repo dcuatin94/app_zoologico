@@ -63,10 +63,10 @@ class InicioScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacementNamed(context, '/menu');
+          Navigator.pushReplacementNamed(context, '/login');
         },
-        child: const Icon(Icons.arrow_forward, color: Colors.white),
         backgroundColor: Colors.amber.shade400,
+        child: const Icon(Icons.arrow_forward, color: Colors.white),
       ),
     );
   }
