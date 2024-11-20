@@ -1,18 +1,20 @@
+import 'package:app_zoologico/src/authentication/login.dart';
+import 'package:app_zoologico/src/providers/user_provider.dart';
 import 'package:app_zoologico/src/widgets/ExpandingCircleImage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
-import '../services/auth_service.dart';
 
 class BienvenidoScreen extends StatelessWidget {
   const BienvenidoScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final userService = Provider.of<AuthService>(context);
-    print(userService.user);
-    return Scaffold(
+    final userProvider = Provider.of<UserProvider>(context);
+
+    return userProvider.user != null ? Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         title: SvgPicture.asset(
           'assets/images/zoo-color.svg',
@@ -21,7 +23,7 @@ class BienvenidoScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.green,
       ),
-      body: const Padding(
+      body: Padding(
         padding: EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -67,11 +69,11 @@ class BienvenidoScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.pushReplacementNamed(context, '/login');
+          Navigator.pushReplacementNamed(context, '/menu');
         },
         backgroundColor: Colors.amber.shade400,
         child: const Icon(Icons.arrow_forward, color: Colors.white),
       ),
-    );
+    ) : LoginPage();
   }
 }

@@ -1,6 +1,6 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously
 
-import 'package:app_zoologico/src/services/auth_service.dart';
+import 'package:app_zoologico/src/providers/user_provider.dart';
 import 'package:app_zoologico/src/widgets/ExpandingCircleImage.dart';
 import 'package:app_zoologico/src/widgets/logo.dart';
 import 'package:flutter/material.dart';
@@ -57,7 +57,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void _registerUser() async {
     // Lógica para registrar el usuario
-    Provider.of<AuthService>(context, listen: false)
+    Provider.of<UserProvider>(context, listen: false)
         .signUp(_emailController.text.trim(), _passwordController.text.trim(),
             context)
         .then(

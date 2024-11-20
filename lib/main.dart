@@ -1,4 +1,5 @@
-import 'package:app_zoologico/src/services/auth_service.dart';
+import 'package:app_zoologico/src/authentication/reset_password.dart';
+import 'package:app_zoologico/src/providers/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +16,7 @@ Future<void> main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MultiProvider(
     providers: [
-      ChangeNotifierProvider(create: (_) => AuthService()),
+      ChangeNotifierProvider(create: (_) => UserProvider()),
     ],
     child: MyApp(),
   ));
@@ -27,8 +28,8 @@ class MyApp extends StatelessWidget {
     '/': (context) => const BienvenidoScreen(),
     '/menu': (context) => const Menu(),
     '/login': (context) => const LoginPage(),
-    '/register': (context) =>
-        const RegisterPage(), // Asigna una ruta para HomeScreen(),
+    '/register': (context) => const RegisterPage(),
+    '/reset-password': (context) => const ResetPasswordPage(),
   };
   @override
   Widget build(BuildContext context) {

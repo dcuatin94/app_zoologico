@@ -1,6 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
-import 'package:app_zoologico/src/services/auth_service.dart';
+import 'package:app_zoologico/src/authentication/reset_password.dart';
+import 'package:app_zoologico/src/providers/user_provider.dart';
 import 'package:app_zoologico/src/widgets/ExpandingCircleImage.dart';
 import 'package:app_zoologico/src/widgets/logo.dart';
 import 'package:flutter/material.dart';
@@ -20,22 +21,9 @@ class _LoginPageState extends State<LoginPage> {
   bool _obscurePassword = true;
 
   void _login() async {
-    try {
-      Provider.of<AuthService>(context, listen: false).signIn(
-          _emailController.text.trim(),
-          _passwordController.text.trim(),
-          context);
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-        content: Text(
-          'Error al registrar el usuario: $e',
-          style: TextStyle(color: Colors.white),
-        ),
-        duration: Duration(seconds: 2),
-        backgroundColor: Colors.red,
-        elevation: 4.0,
-      ));
-    }
+    Provider.of<UserProvider>(context, listen: false)
+        .signIn(_emailController.text.trim(), _passwordController.text.trim(),
+            context);
   }
 
   @override
@@ -44,11 +32,11 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         title: Logo(),
         backgroundColor: Colors.green,
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: ListView(
           children: [
             Text(
               'Iniciar Sesión',
@@ -108,21 +96,34 @@ class _LoginPageState extends State<LoginPage> {
             ),
             SizedBox(height: 16.0),
             TextButton(
-              style: TextButton.styleFrom(
-                minimumSize: Size(double.infinity, 50),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                backgroundColor: const Color.fromARGB(255, 138, 189, 255),
-                foregroundColor: Colors.white,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ResetPasswordPage()),
+                );
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('¿Olvidaste tu contraseña?'),
+                  Text(' Recuperar', style: TextStyle(color: Colors.green.shade900, fontWeight: FontWeight.bold)),
+                ],
               ),
+            ),
+            TextButton(
               onPressed: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => RegisterPage()),
                 );
               },
-              child: Text(' Registrarme'),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('¿No tienes una cuenta?'),
+                  Text(' Registrarme', style: TextStyle(color: Colors.green.shade900, fontWeight: FontWeight.bold)),
+                ],
+              ),
             ),
           ],
         ),

@@ -38,7 +38,7 @@ class ContactosScreen extends StatelessWidget {
           const ListTile(
             leading: Icon(Icons.phone, color: Colors.blue),
             title: Text('Llamanos'),
-            subtitle: Text('+593 (2) 359-1142 '),
+            subtitle: Text('+593 (02) 359-1142 '),
           ),
           const Divider(),
           // Redes Sociales

@@ -8,12 +8,14 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Historias de Animales'),
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child:Text('Historias de Animales', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.green, shadows: const [Shadow(color: Colors.green, offset: Offset(1, 1), blurRadius: 1)]), textAlign: TextAlign.center,),
+            ),
+            SizedBox(height: 10),
             AnimalCarousel(),
             const SizedBox(
               height: 20,
