@@ -3,6 +3,7 @@ class Animal {
   final String species;
   final String family;
   final String habitat;
+  // ignore: non_constant_identifier_names
   final String place_of_found;
   final String diet;
   final String description;
@@ -12,6 +13,7 @@ class Animal {
     required this.species,
     required this.family,
     required this.habitat,
+    // ignore: non_constant_identifier_names
     required this.place_of_found,
     required this.diet,
     required this.description

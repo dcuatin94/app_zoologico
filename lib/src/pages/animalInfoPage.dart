@@ -7,7 +7,7 @@ class AnimalInfoPage extends StatelessWidget {
   final String image;
   const AnimalInfoPage({super.key, required this.name, required this.image});
 
-@override
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
