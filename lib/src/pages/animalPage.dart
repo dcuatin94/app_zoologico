@@ -5,19 +5,14 @@ import 'package:flutter/material.dart';
 class AnimalListPage extends StatelessWidget {
   final String name;
   final String image;
-  const AnimalListPage({
-    super.key,
-    required this.name,
-    required this.image
-  });
+  const AnimalListPage({super.key, required this.name, required this.image});
 
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text('Animales del Zoológico')),
       body: FutureBuilder<List<Animal>>(
-        future: fetchAnimals(),
+        future: fetchAnimals(name),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -42,7 +37,10 @@ class AnimalListPage extends StatelessWidget {
                           image,
                           height: 300,
                           fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) => const Center(child: Text("Imagen no disponible"),),
+                          errorBuilder: (context, error, stackTrace) =>
+                              const Center(
+                            child: Text("Imagen no disponible"),
+                          ),
                         ),
                         Container(
                           color: Colors.green.shade300,
@@ -60,7 +58,7 @@ class AnimalListPage extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Container(
-                           decoration: BoxDecoration(
+                            decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(8.0),
                                 boxShadow: [
@@ -70,15 +68,13 @@ class AnimalListPage extends StatelessWidget {
                                     blurRadius: 5,
                                     offset: const Offset(0, 3),
                                   )
-                                ]
-                            ),
+                                ]),
                             padding: EdgeInsets.all(16.0),
                             child: Column(
                               children: [
                                 ListTile(
                                   subtitle: Text(
-                                    'Especie: ${animal.species}\nFamilia: ${animal.family} \nHábitat: ${animal.habitat}\nLocalización: ${animal.place_of_found}\nDieta: ${animal.diet}\nDescripcion: ${animal.description}'
-                                  ),
+                                      'Especie: ${animal.species}\nFamilia: ${animal.family} \nHábitat: ${animal.habitat}\nLocalización: ${animal.place_of_found}\nDieta: ${animal.diet}\nDescripcion: ${animal.description}'),
                                 )
                               ],
                             ),
