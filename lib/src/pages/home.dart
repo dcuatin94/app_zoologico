@@ -1,4 +1,4 @@
-import 'package:app_zoologico/src/widgets/cards_row.dart';
+import 'package:app_zoologico/src/pages/informativo_page.dart';
 import 'package:app_zoologico/src/widgets/carousel.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,8 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const CardsRow(),
+            // const CardsRow(),
+            InformativoPage(),
           ],
         ),
       ),

@@ -17,7 +17,7 @@ class AnimalListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('Animales del Zoológico')),
       body: FutureBuilder<List<Animal>>(
-        future: fetchAnimals(),
+        future: fetchAnimals( name),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -77,7 +77,7 @@ class AnimalListPage extends StatelessWidget {
                               children: [
                                 ListTile(
                                   subtitle: Text(
-                                    'Especie: ${animal.species}\nFamilia: ${animal.family} \nHábitat: ${animal.habitat}\nLocalización: ${animal.place_of_found}\nDieta: ${animal.diet}\nDescripcion: ${animal.description}'
+                                    'Especie: ${animal.species}\nFamilia: ${animal.family} \nHábitat: ${animal.habitat}\nLocalización: ${animal.placeOfFound}\nDieta: ${animal.diet}\nDescripcion: ${animal.description}'
                                   ),
                                 )
                               ],

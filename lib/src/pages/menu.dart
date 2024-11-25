@@ -4,6 +4,7 @@ import 'package:app_zoologico/src/authentication/login.dart';
 import 'package:app_zoologico/src/pages/contactos.dart';
 import 'package:app_zoologico/src/pages/home.dart';
 import 'package:app_zoologico/src/pages/gallery.dart';
+import 'package:app_zoologico/src/pages/sugerencias_screen.dart';
 import 'package:app_zoologico/src/widgets/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:app_zoologico/src/providers/user_provider.dart';
@@ -20,8 +21,8 @@ class _MenuState extends State<Menu> {
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
-    // const MapaScreen(),
     const GalleryScreen(),
+    const SugerenciasScreen(),
     const ContactosScreen(),
   ];
 
@@ -119,8 +120,8 @@ class _MenuState extends State<Menu> {
                   label: 'Animales',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.info),
-                  label: 'Info',
+                  icon: Icon(Icons.lightbulb),
+                  label: 'Sugerencias',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.email),

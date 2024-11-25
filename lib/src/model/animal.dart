@@ -3,7 +3,7 @@ class Animal {
   final String species;
   final String family;
   final String habitat;
-  final String place_of_found;
+  final String placeOfFound;
   final String diet;
   final String description;
 
@@ -12,7 +12,7 @@ class Animal {
     required this.species,
     required this.family,
     required this.habitat,
-    required this.place_of_found,
+    required this.placeOfFound,
     required this.diet,
     required this.description
   });
@@ -23,7 +23,7 @@ class Animal {
       species: json['species'],
       family: json['family'],
       habitat: json['habitat'],
-      place_of_found:json['place_of_found'],
+      placeOfFound:json['place_of_found'],
       diet: json['diet'],
       description: json['description'],
     );
