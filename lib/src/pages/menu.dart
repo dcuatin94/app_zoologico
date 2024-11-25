@@ -25,9 +25,7 @@ class _MenuState extends State<Menu> {
     const HomeScreen(),
     const GalleryScreen(),
     const SugerenciasScreen(),
-    const ContactosScreen(),
-    const ContactosScreen(), // Placeholder para Contáctanos
-    const SugerenciasScreen(), // Pantalla de Sugerencias
+    const ContactosScreen(), // Pantalla de Sugerencias
   ];
 
   void _selectedOptionInMyBottomNav(int index) {
@@ -134,10 +132,6 @@ class _MenuState extends State<Menu> {
                 BottomNavigationBarItem(
                   icon: Icon(Icons.email),
                   label: 'Contáctanos',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.lightbulb_outline),
-                  label: 'Sugerencias',
                 ),
               ],
               currentIndex: _selectedIndex,
