@@ -52,7 +52,7 @@ class AnimalCarousel extends StatelessWidget {
           );
         },
         options: CarouselOptions(
-          height: 400,
+          height: 300,
           enlargeCenterPage: true,
           autoPlay: true,
           aspectRatio: 16 / 9,

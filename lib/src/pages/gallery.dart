@@ -9,37 +9,26 @@ class GalleryScreen extends StatelessWidget {
     {
       "name": "Lion",
       "image": "assets/galeria/leon.jpg",
-      "description": "El majestuoso león nació en 2010 en la vasta sabana africana, "
-          "donde enfrentó múltiples peligros, incluidos cazadores furtivos y la amenaza de la pérdida de su hábitat natural. "
-          "En un dramático giro del destino, fue capturado por traficantes ilegales, pero afortunadamente, "
-          "un operativo internacional logró rescatarlo. Debilitado pero lleno de esperanza, fue trasladado al zoológico de Guayllabamba, en Ecuador, "
-          "donde recibió cuidados intensivos y un hogar seguro. Hoy, este león simboliza la lucha por la conservación de especies y la esperanza "
-          "de un futuro mejor para la fauna amenazada."
     },
     {
       "name": "Jaguar",
       "image": "assets/galeria/jaguar.jpg",
-      "description": "El jaguar, nacido en 2015 en el corazón de la Amazonía, sufrió las consecuencias de la deforestación masiva que destruyó su hogar. "
-          "Desplazado y en busca de alimento, tuvo un desafortunado encuentro con humanos, lo que casi le costó la vida. "
-          "Afortunadamente, fue rescatado y llevado al zoológico de Guayllabamba, donde ahora vive protegido. "
-          "Este imponente felino se ha convertido en un símbolo de la conservación y de la coexistencia armoniosa entre los humanos y la naturaleza."
     },
     {
       "name": "Armadillo",
       "image": "assets/galeria/Armadillo.jpg",
-      "description": "El cóndor andino, ave emblemática de Ecuador, es reconocido como una de las especies voladoras más grandes del mundo. "
-          "Con su majestuosa envergadura que puede superar los tres metros, surca los cielos de los Andes simbolizando fuerza, libertad y esperanza. "
-          "A pesar de su importancia cultural y natural, enfrenta serias amenazas debido a la pérdida de hábitat y la caza ilegal, lo que lo ha llevado al borde de la extinción. "
-          "En Ecuador, esfuerzos de conservación buscan proteger a esta icónica ave, devolviéndole su lugar como guardián de las montañas."
     },
     {
       "name": "Elephant",
       "image": "assets/galeria/elephant.jpg",
-      "description": "La tortuga de Galápagos, una de las especies más longevas del mundo, puede vivir más de 100 años, "
-          "y algunos ejemplares han llegado a superar los 150 años. Endémica de las Islas Galápagos, esta majestuosa criatura desempeña un papel fundamental en su ecosistema, "
-          "ayudando a dispersar semillas y mantener el equilibrio natural. "
-          "Sin embargo, durante siglos enfrentó la amenaza de la caza y la introducción de especies invasoras que pusieron en peligro su existencia. "
-          "Gracias a los esfuerzos de conservación, hoy su población está en recuperación, representando un símbolo de esperanza y resiliencia."
+    },
+    {
+      "name": "Pangolin",
+      "image": "assets/galeria/pangolin.jpg",
+    },
+    {
+      "name": "Tapir",
+      "image": "assets/galeria/tapir.jpg",
     },
   ];
 

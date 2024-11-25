@@ -1,6 +1,6 @@
+import 'package:app_zoologico/src/helpers/sql_helper.dart';
+import 'package:app_zoologico/src/model/sugerencia_model.dart';
 import 'package:flutter/material.dart';
-import '../widgets/sql_helper.dart';
-import '../model/sugerencia_model.dart';
 
 class SugerenciasScreen extends StatefulWidget {
   const SugerenciasScreen({super.key});
@@ -44,7 +44,7 @@ class SugerenciasScreenState extends State<SugerenciasScreen> {
 // Verifica nuevamente si el widget sigue montado antes de mostrar el SnackBar
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Sugerencia guardada con éxito!')),
+          const SnackBar(content: Text('Comentario guardado con éxito!')),
         );
       }
     } else {
@@ -65,78 +65,87 @@ class SugerenciasScreenState extends State<SugerenciasScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Sugerencias"),
+        title: const Text("Comentarios y Sugerencias"),
         backgroundColor: Colors.green,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              "Califica tu experiencia",
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 16),
-            Row(
-              children: List.generate(
-                5,
-                (index) => IconButton(
-                  icon: Icon(
-                    index < _rating ? Icons.star : Icons.star_border,
-                    size: 32,
-                    color: Colors.amber,
+      body: SingleChildScrollView(
+        // Envuelve todo el contenido en un scroll
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                "Califica tu experiencia",
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 16),
+              Row(
+                children: List.generate(
+                  5,
+                  (index) => IconButton(
+                    icon: Icon(
+                      index < _rating ? Icons.star : Icons.star_border,
+                      size: 32,
+                      color: Colors.amber,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _rating = index + 1; // Actualizar calificación
+                      });
+                    },
                   ),
-                  onPressed: () {
-                    setState(() {
-                      _rating = index + 1; // Actualizar calificación
-                    });
+                ),
+              ),
+              const SizedBox(height: 16),
+              TextField(
+                controller: _sugerenciaController,
+                maxLines: 5,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "Escribe tu sugerencia aquí",
+                ),
+              ),
+              const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: _addSugerencia,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                ),
+                child: const Text("Enviar",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white)),
+              ),
+              SizedBox(
+                // Limita la altura de la ListView
+                height:
+                    200, // Puedes ajustar este valor según el espacio que desees
+                child: ListView.builder(
+                  shrinkWrap:
+                      true, // Deja que la ListView se adapte al espacio disponible
+                  physics:
+                      NeverScrollableScrollPhysics(), // Desactiva el scroll propio de la ListView
+                  itemCount: _sugerencias.length,
+                  itemBuilder: (context, index) {
+                    final sugerencia = _sugerencias[index];
+                    return Card(
+                      child: ListTile(
+                        leading: Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                          size: 32,
+                        ),
+                        title: Text("Calificación: ${sugerencia.rating}"),
+                        subtitle: Text(sugerencia.texto),
+                      ),
+                    );
                   },
                 ),
               ),
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              controller: _sugerenciaController,
-              maxLines: 5,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: "Escribe tu sugerencia aquí",
-              ),
-            ),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: _addSugerencia,
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
-              ),
-              child: const Text("Enviar"),
-            ),
-            const SizedBox(height: 24),
-            const Text(
-              "Sugerencias guardadas",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: _sugerencias.length,
-                itemBuilder: (context, index) {
-                  final sugerencia = _sugerencias[index];
-                  return Card(
-                    child: ListTile(
-                      leading: Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                        size: 32,
-                      ),
-                      title: Text("Calificación: ${sugerencia.rating}"),
-                      subtitle: Text(sugerencia.texto),
-                    ),
-                  );
-                },
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
