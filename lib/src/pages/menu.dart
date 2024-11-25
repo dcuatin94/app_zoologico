@@ -19,16 +19,20 @@ class Menu extends StatefulWidget {
 
 class _MenuState extends State<Menu> {
   int _selectedIndex = 0;
+
+  // Lista de widgets sincronizada con el BottomNavigationBar
   static final List<Widget> _widgetOptions = <Widget>[
     const HomeScreen(),
     const GalleryScreen(),
     const SugerenciasScreen(),
     const ContactosScreen(),
+    const ContactosScreen(), // Placeholder para Contáctanos
+    const SugerenciasScreen(), // Pantalla de Sugerencias
   ];
 
   void _selectedOptionInMyBottomNav(int index) {
     setState(() {
-      _selectedIndex = index;
+      _selectedIndex = index; // Actualiza el índice seleccionado
     });
   }
 
@@ -71,7 +75,7 @@ class _MenuState extends State<Menu> {
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context)
-                                      .pop(); // Cerrar el dialogo
+                                      .pop(); // Cerrar el diálogo
                                 },
                                 style: TextButton.styleFrom(
                                   backgroundColor: Colors.red,
@@ -88,19 +92,23 @@ class _MenuState extends State<Menu> {
                   itemBuilder: (context) => [
                     PopupMenuItem(
                       enabled: false,
-                      child: Row(children: [
-                        Icon(Icons.email),
-                        SizedBox(width: 8),
-                        Text(user?.email ?? '')
-                      ],),
+                      child: Row(
+                        children: [
+                          Icon(Icons.email),
+                          SizedBox(width: 8),
+                          Text(user?.email ?? '')
+                        ],
+                      ),
                     ),
                     PopupMenuItem(
                       value: 'logout',
-                      child: Row(children: [
-                        Icon(Icons.logout),
-                        SizedBox(width: 8),
-                        Text('Cerrar Sesión')
-                      ],),
+                      child: Row(
+                        children: [
+                          Icon(Icons.logout),
+                          SizedBox(width: 8),
+                          Text('Cerrar Sesión')
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -126,6 +134,10 @@ class _MenuState extends State<Menu> {
                 BottomNavigationBarItem(
                   icon: Icon(Icons.email),
                   label: 'Contáctanos',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.lightbulb_outline),
+                  label: 'Sugerencias',
                 ),
               ],
               currentIndex: _selectedIndex,

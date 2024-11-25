@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  sqflite: ^2.2.0
+  path: ^1.8.3
   cupertino_icons: ^1.0.2  # Para íconos en estilo iOS
   flutter_svg: ^2.0.10+1
   carousel_slider: ^5.0.0
@@ -35,3 +37,4 @@ flutter:
   assets:
     - assets/galeria/  # Ruta a tu carpeta de imágenes
     - assets/images/  # Ruta a tu carpeta de imágenes
+
